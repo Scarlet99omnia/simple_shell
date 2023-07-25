@@ -11,12 +11,12 @@ int interact(inft *info)
 }
 
 /**
- * checkdelim - checks if character is a delimeter
+ * checkdlm - checks if character is a delimeter
  * @c: the char to check
  * @delim: the delimeter string
  * Return: 1 if true, 0 if false
  */
-int checkdelim(char c, char *delim)
+int checkdlm(char c, char *delim)
 {
 	while (*delim)
 		if (*delim++ == c)

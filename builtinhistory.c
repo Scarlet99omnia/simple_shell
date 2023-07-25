@@ -16,7 +16,7 @@ int dispHist(inft *info)
 /**
  * setAlias - sets alias to string
  * @info: parameter struct
- * @string the string alias
+ * @string : the string alias
  * Return: Always 0 on success, 1 on error
  */
 int setAlias(inft *info, char *string)
@@ -24,13 +24,13 @@ int setAlias(inft *info, char *string)
 	char *p, c;
 	int ret;
 
-	p = stringchar(string, '=');
+	p = strnchar(string, '=');
 	if (!p)
 		return (1);
 	c = *p;
 	*p = 0;
 	ret = rmvNodeAtIndex(&(info->alias),
-	getNodeIndex(info - > alias, nodestartswith(info - > alias, string - 1)));
+	getNodeIndex(info->alias, nodestartswith(info->alias, string, -1)));
 	*p = c;
 	return (ret);
 }
@@ -38,21 +38,21 @@ int setAlias(inft *info, char *string)
 /**
  * set_Alias - sets alias to string
  * @info: parameter struct
- * @string the string alias
+ * @string : the string alias
  * Return: Always 0 on success, 1 on error
  */
 int set_Alias(inft *info, char *string)
 {
 	char *p;
 
-	p = stringchar(string, '=');
+	p = strnchar(string, '=');
 	if (!p)
 		return (1);
 	if (!*++p)
 		return (setAlias(info, string));
 
 	setAlias(info, string);
-	return (addnodeend(&(info->alias), string 0) == NULL);
+	return (addnodeend(&(info->alias), string, 0) == NULL);
 }
 
 /**
@@ -66,7 +66,7 @@ int printAlias(list_t *node)
 
 	if (node)
 	{
-		p = stringchar(node->string, '=');
+		p = strnchar(node->string, '=');
 		for (a = node->string; a <= p; a++)
 		_putchar(*a);
 		_putchar('\'');
@@ -100,7 +100,7 @@ int builtAlias(inft *info)
 	}
 	for (i = 1; info->argv[i]; i++)
 	{
-		p = stringchar(info->argv[i], '=');
+		p = strnchar(info->argv[i], '=');
 		if (p)
 			set_Alias(info, info->argv[i]);
 		else

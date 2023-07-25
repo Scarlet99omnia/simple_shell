@@ -31,7 +31,7 @@ int printsinputchar(char c)
 
 	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
-		write(2, but, i);
+		write(2, buf, i);
 		i = 0;
 	}
 	if (c != BUF_FLUSH)
@@ -73,7 +73,7 @@ int pifd(char *string, int fd)
 
 	if (!string)
 		return (0);
-	while (*string
+	while (*string)
 	{
 		i += printsfd(*string++, fd);
 	}

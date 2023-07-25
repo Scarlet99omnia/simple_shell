@@ -32,7 +32,7 @@ ssize_t inputbuf(inft *info, char **buf, size_t *len)
 			}
 			info->linecountflag = 1;
 			rmvComments(*buf);
-			buildhistlis(info, *buf, info->histcount++);
+			buildhistlist(info, *buf, info->histcount++);
 			/* if (stringchar(*buf, ';')) is this a command chain? */
 			{
 				*len = r;
@@ -124,21 +124,21 @@ int getsline(inft *info, char **ptr, size_t *length)
 	p = *ptr;
 	if (p && length)
 		s = *length;
-	if (i == pen)
+	if (i == len)
 		i = len = 0;
 
 	r = readbuf(info, buf, &len);
 	if (r == -1 || (r == 0 && len == 0))
 		return (-1);
 
-	c = stringchar(buf + i, '\n');
+	c = strnchar(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
 	new_p = reaBlcMem(p, s, s ? s + k : k + 1);
 	if (!new_p) /* MALLOC FAILURE! */
 		return (p ? free(p), -1 : -1);
 
 	if (s)
-		stringcat(new_p, buf + i, k - i);
+		strncat(new_p, buf + i, k - i);
 	else
 		stringcpy(new_p, buf + i, k - i + 1);
 

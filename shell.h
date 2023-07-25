@@ -145,8 +145,8 @@ int _putchar(char);
 
 /* stringSet1.c */
 char *stringcpy(char *, char *, int);
-char *stringcat(char *, char *, int);
-char *stringchar(char *, char);
+char *strnCat(char *, char *, int);
+char *strnchar(char *, char);
 
 /* stringTow.c */
 char **stringtow(char *, char *);
@@ -162,7 +162,7 @@ int bfree(void **);
 
 /* convstring.c */
 int interact(inft *);
-int checkdelim(char, char *);
+int checkdlm(char, char *);
 int checkalpha(int);
 int convstring(char *);
 
@@ -208,7 +208,7 @@ int intenv(inft *, char *, char *);
 char *gethistoryfile(inft *info);
 int writehistory(inft *info);
 int readhistory(inft *info);
-int buildhistlis(inft *info, char *buf, int linecount);
+int buildhistlist(inft *info, char *buf, int linecount);
 int renumbHist(inft *info);
 
 /* node.c */

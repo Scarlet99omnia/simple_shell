@@ -31,13 +31,13 @@ char *stringcpy(char *dest, char *src, int n)
 }
 
 /**
- **stringcat - concatenates two strings
+ **strnCat - concatenates two strings
  *@dest: the first string
  *@src: the second string
  *@n: the amount of bytes to be maximally used
  *Return: the concatenated string
  */
-char *stringcat(char *dest, char *src, int n)
+char *strnCat(char *dest, char *src, int n)
 {
 	int i, j;
 	char *s = dest;
@@ -58,12 +58,12 @@ char *stringcat(char *dest, char *src, int n)
 }
 
 /**
- **stringchar - locates a character in a string
+ **strnchar - locates a character in a string
  *@s: the string to be parsed
  *@c: the character to look for
  *Return: (s) a pointer to the memory area s
  */
-char *stringchar(char *s, char c)
+char *strnchar(char *s, char c)
 {
 	do {
 		if (*s == c)

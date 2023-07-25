@@ -1,8 +1,8 @@
 #include "shell.h"
 /**
 * msh - main shell loop
-* info: the parameter & return info struct
-* av: the argument vector from main()
+* @info: the parameter & return info struct
+* @av: the argument vector from main()
 * Return: 0 on success, 1 on error, or error code
 */
 int msh(inft *info, char **av)
@@ -40,8 +40,8 @@ exit(info->errnum);
 return (builtin_ret);
 }
 /**
-* findBuiltinCmd : finds a builtin command
-* info: the parameter and return info struct
+* findBuiltinCmd - finds a builtin command
+* @info: the parameter and return info struct
 * Return: -1 if builtin not found,
 * 0 if builtin executed successfully,
 * 1 if builtin found but not successful,
@@ -56,7 +56,7 @@ builtin_table builtintbl[] = {
 {"help", cdhelp},
 {"history", dispHist},
 {"setEnv", setEnv},
-{« set_env", rmv_env},
+{"set_env", rmv_env},
 {"cd", cdp},
 {"alias", builtAlias},
 {NULL, NULL}
@@ -73,7 +73,6 @@ return (built_in_ret);
 /**
 * find_cmd - finds a command in PATH
 * @info: the parameter & return info struct
-*
 * Return: void
 */
 void find_cmd(inft *info)
@@ -88,11 +87,11 @@ info->errcount++;
 info->linecountflag = 0;
 }
 for (i = 0, k = 0; info->arg[i]; i++)
-if (!checkdelim(info->arg[i], " \t\n"))
+if (!checkdlm(info->arg[i], " \t\n"))
 k++;
 if (!k)
 return;
-path = findCmdPath(info, getvalueEnv(info, "PATH="), info->argv[0]);
+path = findCmdPath(info, getvalueEnv(info, "PATH = "), info->argv[0]);
 if (path)
 {
 info->path = path;
@@ -100,7 +99,7 @@ forkcmd(info);
 }
 else
 {
-if ((interact(info) || getvalueEnv(info, "PATH=")
+if ((interact(info) || getvalueEnv(info, "PATH = ")
 || info->argv[0][0] == '/') && excmd(info, info->argv[0]))
 forkcmd(info);
 else if (*(info->arg) != '\n')
@@ -111,8 +110,8 @@ printError(info, "not found\n");
 }
 }
 /**
-* forkcmd : forks a an exec thread to run cmd
-* info: the parameter and return info struct
+* forkcmd - forks a an exec thread to run cmd
+* @info: the parameter and return info struct
 * Return: void
 */
 void forkcmd(inft *info)
@@ -122,7 +121,7 @@ child_pid = fork();
 if (child_pid == -1)
 {
 /* TODO: PUT ERROR FUNCTION */
-perror("Error:");
+perror("Error : ");
 return;
 }
 if (child_pid == 0)

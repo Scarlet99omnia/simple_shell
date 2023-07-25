@@ -1,8 +1,8 @@
 #include "shell.h"
 /**
-* excmd : determines if a file is an executable command
-* info: the info struct
-* path: path to the file
+* excmd - determines if a file is an executable command
+* @info: the info struct
+* @path: path to the file
 * Return: 1 if true, 0 otherwise
 */
 int excmd(inft *info, char *path)
@@ -18,10 +18,10 @@ return (1);
 return (0);
 }
 /**
-* dupChars : duplicates characters
-* pathstring : the PATH string
-* start: starting index
-* stop: stopping index
+* dupChars - duplicates characters
+* @pathstring : the PATH string
+* @start: starting index
+* @stop: stopping index
 * Return: pointer to new buffer
 */
 char *dupChars(char *pathstring, int start, int stop)
@@ -35,10 +35,10 @@ buf[k] = 0;
 return (buf);
 }
 /**
-* findCmdPath : finds this cmd in the PATH string
-* info: the info struct
-* pathstring the PATH string
-* cmd: the cmd to be finded
+* findCmdPath - finds this cmd in the PATH string
+* @info: the info struct
+* @pathstring: the PATH string
+* @cmd: the cmd to be finded
 * Return: full path of cmd if found or NULL
 */
 char *findCmdPath(inft *info, char *pathstring, char *cmd)

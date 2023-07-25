@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
-* setMemory : fills memory with a constant byte
-* s: the pointer to the memory area
-* b: the byte to fill *s with
-* n: the amount of bytes to be filled
+* setMemory - fills memory with a constant byte
+* @s: the pointer to the memory area
+* @b: the byte to fill *s with
+* @n: the amount of bytes to be filled
 * Return: (s) a pointer to the memory area s
 */
 char *setMemory(char *s, char b, unsigned int n)
@@ -14,8 +14,8 @@ s[i] = b;
 return (s);
 }
 /**
-* freesStrings : frees a string of strings
-* sS: string of Strings
+* freesStrings - frees a string of strings
+* @sS: string of Strings
 */
 void freesStrings(char **sS)
 {
@@ -27,10 +27,10 @@ free(*sS++);
 free(a);
 }
 /**
-* reaBlcMem : reallocates a block of memory
-* ptr: pointer to previous malloc'ated block
-* prevSize: byte size of previous block
-* newSize: byte size of new block
+* reaBlcMem - reallocates a block of memory
+* @ptr: pointer to previous malloc'ated block
+* @prevSize: byte size of previous block
+* @newSize: byte size of new block
 * Return: pointer to the all block nameen.
 */
 void *reaBlcMem(void *ptr, unsigned int prevSize, unsigned int newSize)

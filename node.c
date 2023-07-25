@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
-* addnode : adds a node to the start of the list
-* head: address of pointer to head node
-* string :string of node
-* num: node index used by history
+* addnode - adds a node to the start of the list
+* @head: address of pointer to head node
+* @string :string of node
+* @num: node index used by history
 * Return: size of list
 */
 list_t *addnode(list_t **head, const char *string, int num)
@@ -18,7 +18,7 @@ setMemory((void *)new_head, 0, sizeof(list_t));
 new_head->num = num;
 if (string)
 {
-new_head->string= stringdup(string);
+new_head->string = stringdup(string);
 if (!new_head->string)
 {
 free(new_head);
@@ -30,10 +30,10 @@ new_head->next = *head;
 return (new_head);
 }
 /**
-* addnodeend : adds a node to the end of the list
-* head: address of pointer to head node
-* string stringfield of node
-* num: node index used by history
+* addnodeend - adds a node to the end of the list
+* @head: address of pointer to head node
+* @string : stringfield of node
+* @num: node index used by history
 * Return: size of list
 */
 list_t *addnodeend(list_t **head, const char *string, int num)
@@ -50,7 +50,7 @@ setMemory((void *)new_node, 0, sizeof(list_t));
 new_node->num = num;
 if (string)
 {
-new_node->string= stringdup(string);
+new_node->string = stringdup(string);
 if (!new_node->string)
 {
 free(new_node);
@@ -68,8 +68,8 @@ else
 return (new_node);
 }
 /**
-* printListStringing : prints only the stringelement of a list_t linked list
-* h: pointer to first node
+* printListString - prints only the stringelement of a list_t linked list
+* @h: pointer to first node
 * Return: size of list
 */
 size_t printListString(const list_t *h)
@@ -77,7 +77,7 @@ size_t printListString(const list_t *h)
 size_t i = 0;
 while (h)
 {
-printsInput(h->string? h->string: "(nil)");
+printsInput(h->string ? h->string : "(nil)");
 printsInput("\n");
 h = h->next;
 i++;
@@ -85,10 +85,9 @@ i++;
 return (i);
 }
 /**
-* rmvNodeAtIndex : deletes node at given index
-* head: address of pointer to first node
-* index: index of node to delete
-
+* rmvNodeAtIndex - deletes node at given index
+* @head: address of pointer to first node
+* @index: index of node to delete
 * Return: 1 on success, 0 on failure
 */
 int rmvNodeAtIndex(list_t **head, unsigned int index)
@@ -122,8 +121,8 @@ node = node->next;
 return (0);
 }
 /**
-* freeList : frees all nodes of a list
-* headPtr: address of pointer to head node
+* freeList - frees all nodes of a list
+* @headPtr: address of pointer to head node
 * Return: void
 */
 void freeList(list_t **headPtr)

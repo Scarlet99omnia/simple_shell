@@ -3,7 +3,6 @@
 * stringcp - copies a string
 * @dest: the destination
 * @src: the source
-*
 * Return: pointer to destination
 */
 char *stringcp(char *dest, char *src)
@@ -21,11 +20,10 @@ return (dest);
 }
 /**
 * stringdup - duplicates a string
-* @string the string to duplicate
-*
+* @string : the string to duplicate
 * Return: pointer to the duplicated string
 */
-char *stringdup(const char *string
+char *stringdup(const char *string)
 {
 int length = 0;
 char *ret;
@@ -37,30 +35,28 @@ ret = malloc(sizeof(char) * (length + 1));
 if (!ret)
 return (NULL);
 for (length++; length--;)
-ret[length] = *--str;
+ret[length] = *--string;
 return (ret);
 }
 /**
 * printsInput - prints an input string
-* @string the string to be printed
-*
+* @string : the string to be printed
 * Return: Nothing
 */
-void printsInput(char *string
+void printsInput(char *string)
 {
 int i = 0;
-if (!str)
+if (!string)
 return;
-while (str[i] != '\0')
+while (string[i] != '\0')
 {
-_putchar(str[i]);
+_putchar(string[i]);
 i++;
 }
 }
 /**
 * _putchar - writes the character c to stdout
 * @c: The character to print
-*
 * Return: On success 1.
 * On error, -1 is returned, and errno is set appropriately.
 */

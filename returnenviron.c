@@ -64,7 +64,7 @@ int intenv(inft *info, char *var, char *value)
 	if (!var || !value)
 		return (0);
 
-	but = malloc(strlength(var) + strlength(value) + 2);
+	buf = malloc(strlength(var) + strlength(value) + 2);
 	if (!buf)
 		return (1);
 	stringcp(buf, var);
